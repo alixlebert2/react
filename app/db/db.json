@@ -1,41 +1,105 @@
 {
-    "memes": [
-        {
-        "id": 0,
-        "color": "#000000",
-        "titre": "titre",
-        "text": "toto",
-        "x": 0,
-        "y": 30,
-        "fontWeight": 600,
-        "fontSize": 20,
-        "underline": false,
-        "italic": false,
-        "imageId": 0
-        }
-        
-    ],
-    "images": [
-        {
-            "id": 0,
-            "url": "yoda.jpg",
-            "w": 200,
-            "h": 200,
-            "name": "yoda"
-        },
-        {
-            "id": 1,
-            "url": "meme1.jpg",
-            "w": 200,
-            "h": 200,
-            "name": "meme1"
-        },
-        {
-            "id": 2,
-            "url": "meme2.jpg",
-            "w": 200,
-            "h": 200,
-            "name": "meme2"
-        }
-    ]
+  "memes": [
+    {
+      "id": 0,
+      "color": "#000000",
+      "titre": "titre",
+      "text": "toto",
+      "x": 0,
+      "y": 200,
+      "fontWeight": 200,
+      "fontSize": 20,
+      "underline": false,
+      "italic": false,
+      "imageId": 0
+    },
+    {
+      "id": 1,
+      "color": "#659914",
+      "titre": "MEME 2",
+      "text": "Sacré meme",
+      "x": 0,
+      "y": 200,
+      "fontWeight": 200,
+      "fontSize": 20,
+      "underline": false,
+      "italic": false,
+      "imageId": 1
+    },
+    {
+      "id": 2,
+      "color": "#541234",
+      "titre": "MEME 3",
+      "text": "MEME 3",
+      "x": 0,
+      "y": 200,
+      "fontWeight": 200,
+      "fontSize": 20,
+      "underline": false,
+      "italic": false,
+      "imageId": 2
+    },
+    {
+      "color": "red",
+      "fontSize": 40,
+      "fontWeight": "900",
+      "imageId": 0,
+      "italic": false,
+      "text": "1er meme",
+      "titre": "dummy",
+      "underline": false,
+      "x": 0,
+      "y": 50,
+      "id": 3
+    },
+    {
+      "color": "red",
+      "fontSize": 40,
+      "fontWeight": "900",
+      "imageId": 0,
+      "italic": false,
+      "text": "1er sdfgsdfgsdfgsdfg",
+      "titre": "dummy",
+      "underline": false,
+      "x": 0,
+      "y": 50,
+      "id": 4
+    },
+    {
+      "color": "red",
+      "fontSize": 40,
+      "fontWeight": "900",
+      "imageId": 1,
+      "italic": false,
+      "text": "uiopuioiop",
+      "titre": "dummy",
+      "underline": false,
+      "x": 0,
+      "y": 50,
+      "id": 5
+    }
+  ],
+  "images": [
+    {
+      "id": 0,
+      "url": "yoda.jpg",
+      "w": 1260,
+      "h": 708,
+      "name": "yoda"
+    },
+    {
+      "id": 1,
+      "url": "meme1.jpg",
+      "w": 1920,
+      "h": 1080,
+      "name": "meme1"
+    },
+    {
+      "id": 2,
+      "url": "meme2.jpg",
+      "w": 640,
+      "h": 420,
+      "name": "meme2"
+    }
+  ]
 }

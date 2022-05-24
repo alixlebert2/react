@@ -1,6 +1,7 @@
-import { DummyMeme, IMeme } from "orsys-tjs-meme/dist/interfaces/common";
+import { DummyMeme, IImage, IMeme } from "orsys-tjs-meme/dist/interfaces/common";
 import React from "react";
 import { propTypes } from "react-bootstrap/esm/Image";
+import { ADR_REST, REST_RESSOURCES } from "../../config/config";
 import Button from "../Button/Button";
 import style from "./MemeForm.module.css";
 
@@ -12,7 +13,7 @@ const emptyMeme:IMeme = {
   x:0, y:20,
   fontSize: 20,
   fontWeight:"500",
-  imageId:0,
+  imageId:-1,
   underline:false,
   italic:false,
 }
@@ -21,19 +22,44 @@ const emptyMeme:IMeme = {
 interface IMemeFormProps {
   meme:IMeme,
   onMemeChange: Function,
+  images:Array<IImage>,
 }
 interface IMemeFormState {}
+
 //etat initial
 const initialState: IMemeFormState = {};
+
 const MemeForm: React.FC<IMemeFormProps> = (props) => {
+  const resetMeme = () => {props.onMemeChange(emptyMeme)};
+
+  const saveMeme = () => { 
+    fetch(`${ADR_REST}${REST_RESSOURCES.memes}`, {
+    method:'POST',
+    headers:{
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify(props.meme),
+      }).then(
+      () => {
+        console.log('save ok');
+        resetMeme();
+      },
+      () => {
+        console.log('save ko');
+      }
+    );
+  };
+
   return (
        <div data-testid="MemeForm" className={style.MemeForm}>
         <form 
           onSubmit={(evt:React.FormEvent<HTMLFormElement>) => {
             evt.preventDefault();
+            saveMeme();
           }}
           onReset={(evt:React.FormEvent<HTMLFormElement>) => {
-            props.onMemeChange(emptyMeme);
+            //props.onMemeChange(emptyMeme);
+            resetMeme();
           }}
         >
           <h1>Titre</h1>
@@ -52,9 +78,19 @@ const MemeForm: React.FC<IMemeFormProps> = (props) => {
           <hr />
           <h2>Image</h2>
           <select
-
+            value={props.meme.imageId}
+            onChange={(evt: React.ChangeEvent<HTMLSelectElement>) => {
+              console.log(evt.target.value);
+              props.onMemeChange({
+                ...props.meme, imageId:Number(evt.target.value)
+              });
+            }}
           >
             <option value="-1">Aucune</option>
+              {props.images.map((img:IImage, position: number)=> {
+                return <option value={img.id} key={'select-img-'+position}>{img.name}
+            </option>
+             })}
 
           </select>
           <hr />
@@ -81,7 +117,7 @@ const MemeForm: React.FC<IMemeFormProps> = (props) => {
                 onChange={(evt: React.ChangeEvent<HTMLInputElement>) => {
                   console.log(evt.target.value);
                   props.onMemeChange({
-                    ...props.meme, x:evt.target.value
+                    ...props.meme, x:parseInt(evt.target.value)
                   });
                 }}
               />
@@ -96,7 +132,7 @@ const MemeForm: React.FC<IMemeFormProps> = (props) => {
                 onChange={(evt: React.ChangeEvent<HTMLInputElement>) => {
                   console.log(evt.target.value);
                   props.onMemeChange({
-                    ...props.meme, y:evt.target.value
+                    ...props.meme, y:parseInt(evt.target.value)
                   });
                 }}
               />
@@ -126,7 +162,7 @@ const MemeForm: React.FC<IMemeFormProps> = (props) => {
                 onChange={(evt: React.ChangeEvent<HTMLInputElement>) => {
                   console.log(evt.target.value);
                   props.onMemeChange({
-                    ...props.meme, fontSize:evt.target.value
+                    ...props.meme, fontSize:Number(evt.target.value)
                   });
                 }}
                 min={0}
