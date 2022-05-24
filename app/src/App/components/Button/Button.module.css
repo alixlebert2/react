@@ -15,6 +15,10 @@
     background-color: red;
 }
 
-.text {
-    color:brown;
+.Button:hover{
+    box-shadow: 15px 15px 25px grey;
+}
+.clicked{
+    border: ridge grey;
+    box-shadow: 10px 10px 20px grey;
 }
