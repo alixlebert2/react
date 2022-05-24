@@ -1,0 +1,41 @@
+{
+    "memes": [
+        {
+        "id": 0,
+        "color": "#000000",
+        "titre": "titre",
+        "text": "toto",
+        "x": 0,
+        "y": 30,
+        "fontWeight": 600,
+        "fontSize": 20,
+        "underline": false,
+        "italic": false,
+        "imageId": 0
+        }
+        
+    ],
+    "images": [
+        {
+            "id": 0,
+            "url": "yoda.jpg",
+            "w": 200,
+            "h": 200,
+            "name": "yoda"
+        },
+        {
+            "id": 1,
+            "url": "meme1.jpg",
+            "w": 200,
+            "h": 200,
+            "name": "meme1"
+        },
+        {
+            "id": 2,
+            "url": "meme2.jpg",
+            "w": 200,
+            "h": 200,
+            "name": "meme2"
+        }
+    ]
+}

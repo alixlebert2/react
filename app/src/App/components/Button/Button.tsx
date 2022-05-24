@@ -24,9 +24,9 @@ const Button :React.FC<IButtonProps>= (props) => {
             props.onButtonClicked()
         }}
         style={{
-            ...props.styleNew,
             backgroundColor:props.bgcolor,
-            color:props.color
+            color:props.color,
+            ...props.styleNew,
         }}
         type={props.type}
     >
@@ -43,12 +43,12 @@ Button.propTypes={
   //type: PropTypes.string,
   children: PropTypes.any.isRequired,
 }
-
+*/
 Button.defaultProps={
     bgcolor: 'skyblue',
     color: 'white',
     type: 'button',
 }
-*/
+
 // exportation
 export default Button;
